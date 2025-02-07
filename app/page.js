@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Loader } from "lucide-react";
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -19,6 +19,7 @@ export default function Home() {
     hall_number: "",
     performance: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -26,6 +27,7 @@ export default function Home() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     const response = await fetch("/api", {
       method: "POST",
@@ -51,6 +53,7 @@ export default function Home() {
     } else {
       toast.error(result.error || "Submission failed");
     }
+    setIsSubmitting(false);
   };
 
   return (
@@ -95,7 +98,9 @@ export default function Home() {
               <Textarea name="performance" value={formData.performance} onChange={handleChange} placeholder="Enter your answer" maxLength="1000" />
             </div>
 
-            <Button className="my-2 text-md w-full shadow-lg hover:shadow-blue-500/50 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-4 rounded-lg flex items-center gap-2 hover:scale-105 transition-transform duration-300" type="submit">Submit <ArrowUpRight /> </Button>
+            <Button className="my-2 text-md w-full shadow-lg hover:shadow-blue-500/50 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-4 rounded-lg flex items-center gap-2 hover:scale-105 transition-transform duration-300" type="submit" disabled={isSubmitting}>
+              {isSubmitting ? <Loader className="animate-spin" /> : ( <> Submit <ArrowUpRight /> </>)}
+            </Button>
           </form>
         </div>
       </div>
