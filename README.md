@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Exordium 2025  
+Exordium 2025 is an event registration platform built with Next.js and Supabase.  
 
-## Getting Started
+### Features  
+- Next.js 14 with the App Router  
+- Supabase as the backend database  
+- Tailwind CSS for styling  
+- Secure form submission with validation  
 
-First, run the development server:
+## Getting Started  
 
+### 1. Clone the Repository  
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/exordium.git
+cd exordium
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install Dependencies  
+```bash
+npm install
+# or
+yarn install
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 3. Start the Development Server  
+```bash
+npm run dev
+```
+The application will be available at:  
+[http://localhost:3000](http://localhost:3000)  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Setting Up Supabase  
 
-## Learn More
+### 1. Create a Supabase Project  
+1. Go to [Supabase](https://supabase.com) and sign in.  
+2. Create a new project and note down the **Project URL** and **API Key**.  
 
-To learn more about Next.js, take a look at the following resources:
+### 2. Set Up the Database Schema  
+Navigate to **Database → SQL Editor** in Supabase and run the following SQL query to create the required table:  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```sql
+CREATE TABLE submissions (
+  id SERIAL PRIMARY KEY,
+  created_at TIMESTAMPTZ DEFAULT now(),
+  name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  phone TEXT NOT NULL,
+  section TEXT NOT NULL,
+  roll_number TEXT NOT NULL,
+  hall_number TEXT NOT NULL,
+  performance TEXT
+);
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This table will store user submissions.
 
-## Deploy on Vercel
+## Configuring the Environment Variables  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Create a `.env.local` file in the root directory of the project and add the following environment variables:  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```env
+NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+```
+
+**Note:**  
+- `NEXT_PUBLIC_SUPABASE_URL` should be your Supabase project URL.  
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY` should be the Supabase anonymous API key.  
+- Do not expose your **Supabase service role key** in the frontend.  
+
+
+## Deployment  
+
+### Deploying on Vercel  
+To deploy the application on Vercel:  
+1. Push the code to GitHub.  
+2. Go to [Vercel](https://vercel.com), import the repository, and configure the **environment variables** under **Settings → Environment Variables**.  
+3. Click **Deploy** to publish the application.  
+
+## License  
+This project is licensed under the **MIT License**.
+
+## Contributing  
+Contributions are welcome. To contribute, fork the repository, create a new branch, and submit a pull request.  
