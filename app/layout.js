@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono, Orbitron } from "next/font/google";
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
+import { Analytics } from "@vercel/analytics/react"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,6 +32,7 @@ export default function RootLayout({ children }) {
       >
         {children}
         <ToastContainer />
+        <Analytics />
       </body>
     </html>
   );
