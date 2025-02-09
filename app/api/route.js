@@ -1,4 +1,15 @@
 import { supabase } from "@/lib/supabase";
+import { z } from "zod";
+
+const formSchema = z.object({
+  name: z.string().min(1, "Name is required").max(100),
+  email: z.string().email("Invalid email format"),
+  phone: z.string().length(10, "Phone number must be 10 digits").regex(/^\d+$/, "Phone must contain only numbers"),
+  section: z.string().max(1, "Section should be a single character"),
+  roll_number: z.string().max(8, "Roll number must be at most 8 characters"),
+  hall_number: z.coerce.number().min(1).max(14, "Hall number must be between 1 and 14"),
+  performance: z.string().max(500, "Performance description is too long").optional(),
+});
 
 // In-memory store to track request counts
 const rateLimitStore = {};
@@ -37,6 +48,12 @@ export async function POST(req) {
     }
 
     const body = await req.json();
+
+    // Validate request body with Zod
+    const validationResult = formSchema.safeParse(body);
+    if (!validationResult.success) {
+      return new Response(JSON.stringify({ error: validationResult.error.format() }), { status: 400 });
+    }
 
     const { data, error } = await supabase.from("submissions").insert([body]);
 
