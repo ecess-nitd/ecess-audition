@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono, Orbitron } from "next/font/google";
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,8 +20,21 @@ const orbitron = Orbitron({
 });
 
 export const metadata = {
-  title: "Exordium 2025",
-  description: "Join EXORDIUM, an exclusive event for first-year ECE students! Explore AI, IoT, robotics, and digital systems while engaging with faculty and peers driving innovation. Unlock limitless opportunities and embark on a transformative journey in Electronics & Communication Engineering.",
+  title: "EXORDIUM - Kickstart Your ECE Journey | NIT Durgapur",
+  description: "EXORDIUM is an exclusive event for first-year students at NIT Durgapur, unlocking the future of Electronics and Communication Engineering (ECE) with AI, IoT, and robotics.",
+  keywords: "EXORDIUM, NIT Durgapur, ECE, Electronics and Communication Engineering, AI, IoT, Robotics, Digital Systems, Telecommunications, Tech Event, Future Innovations",
+  openGraph: {
+    title: "EXORDIUM - Kickstart Your ECE Journey",
+    description: "Step into the world of Electronics and Communication Engineering with EXORDIUM at NIT Durgapur. Explore AI, IoT, robotics, and more.",
+    url: "https://exordium-ruby.vercel.app",
+    siteName: "ECESS NIT Durgapur",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "EXORDIUM - Kickstart Your ECE Journey",
+    description: "Discover the limitless possibilities in Electronics and Communication Engineering at EXORDIUM, NIT Durgapur.",
+  },
 };
 
 export default function RootLayout({ children }) {
