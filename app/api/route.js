@@ -8,7 +8,7 @@ const formSchema = z.object({
   domain: z.array(z.enum(["Web Development", "Embedded Systems", "Event Management", "Video Editing", "Graphic Designing"])).min(1, "At least one domain must be selected").max(2, "Maximum 2 domains allowed"),
   gender: z.enum(["Male", "Female", "Others"]),
   cgpa: z.coerce.number().min(5.00, "CGPA must be at least 5.00").max(10.00, "CGPA must be at most 10.00"),
-  roll_number: z.string().max(8, "Roll number must be at most 8 characters"),
+  roll_number: z.string().length(8, "Roll number must be exactly 8 characters").regex(/^[A-Za-z0-9]+$/, "Roll number can only contain letters and numbers"),
   performance: z.string().max(500, "Performance description is too long").optional(),
 });
 

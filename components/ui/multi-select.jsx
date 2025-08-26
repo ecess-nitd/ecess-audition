@@ -55,7 +55,7 @@ export function MultiSelect({ value, onChange, placeholder = "Select domains..."
           className="flex h-10 w-full rounded-lg border-2 border-white bg-black/50 text-white hover:bg-gray-800/50 hover:text-white justify-between px-3 py-2 text-base shadow-md transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
         >
           <div className="flex gap-1 flex-wrap">
-            {value.length === 0 && <span className="text-white/70">{placeholder}</span>}
+            {value.length === 0 && <span className="text-gray-400">{placeholder}</span>}
             {value.map((item) => {
               const domain = domains.find(d => d.value === item);
               return (

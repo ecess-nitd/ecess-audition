@@ -30,6 +30,13 @@ export default function Home() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Client-side validation for roll number
+    if (formData.roll_number.length !== 8) {
+      toast.error("Roll number must be exactly 8 characters long");
+      return;
+    }
+    
     setIsSubmitting(true);
 
     const response = await fetch("/api", {
@@ -61,10 +68,10 @@ export default function Home() {
   };
 
   return (
-    <WavyBackground waveWidth={35} blur={15} waveOpacity={0.1} speed="fast">
+    <WavyBackground waveWidth={80} blur={15} waveOpacity={0.1} speed="fast">
       <main className="min-h-screen">
         <section className="flex justify-center items-center font-[family-name:var(--font-geist-sans)] my-4 mt-10">
-          <div className="text-white p-3 max-w-5xl mx-auto">
+          <div className="text-white p-3 max-w-8xl mx-auto">
             <header className="text-center mb-8">
               <h1 className="text-3xl font-bold font-[family-name:var(--font-orbitron)] tracking-wider mb-4">ECESS Audition 2025</h1>
             </header>
@@ -121,7 +128,7 @@ export default function Home() {
                     </div>
                     <div className="w-full">
                       <Label htmlFor="roll_number">Roll number</Label>
-                      <Input name="roll_number" value={formData.roll_number} onChange={handleChange} required placeholder="Enter your roll number" type="text" maxLength="8" />
+                      <Input name="roll_number" value={formData.roll_number} onChange={handleChange} required placeholder="Enter your roll number" type="text" minLength="8" maxLength="8" pattern="[A-Za-z0-9]{8}" title="Roll number must be exactly 8 characters (letters and numbers only)" />
                     </div>
                   </div>
                 </div>

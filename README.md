@@ -1,14 +1,6 @@
 # ECESS Audition 2025  
 ECESS Audition 2025 is an audition registration platform for ECESS (Electronics and Communication Engineering Students Society) at NIT Durgapur, built with Next.js and Supabase.  
 
-### Features  
-- Next.js 14 with the App Router  
-- Supabase as the backend database  
-- Tailwind CSS for styling  
-- Secure form submission with validation  
-- Rate limiting for form submissions  
-- Responsive design for all devices  
-
 ## Getting Started  
 
 ### 1. Clone the Repository  
@@ -55,7 +47,7 @@ CREATE TABLE submissions (
 );
 ```
 
-This table will store audition registrations.
+This table will store audition registrations with proper constraints and validation.
 
 ## Configuring the Environment Variables  
 
@@ -71,17 +63,26 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY` should be the Supabase anonymous API key.  
 - Do not expose your **Supabase service role key** in the frontend.  
 
-## Form Fields
+## Form Fields and Validation
 
-The audition registration form includes the following fields:
-- **Name**: Full name of the participant
-- **Email**: Contact email address
-- **Phone**: 10-digit phone number
-- **Domain**: Technical domains of expertise - multiple selection allowed (Web Development, Embedded Systems, Event Management, Video Editing, Graphic Designing)
+The audition registration form includes the following fields with comprehensive validation:
+
+### Required Fields:
+- **Name**: Full name of the participant (1-100 characters)
+- **Email**: Valid email address format
+- **Phone**: Exactly 10 digits (numbers only)
+- **Domain**: Technical domains of expertise - select 1-2 from:
+  - Web Development
+  - Embedded Systems  
+  - Event Management
+  - Video Editing
+  - Graphic Designing
 - **Gender**: Gender selection (Male, Female, Others)
-- **CGPA**: Current CGPA (5.00-10.00)
-- **Roll Number**: Student roll number (max 8 characters)
-- **Performance**: Description of technical skills or projects you can contribute (optional, max 500 characters)
+- **CGPA**: Current CGPA (5.00-10.00, numeric with 2 decimal places)
+- **Roll Number**: Student roll number (exactly 8 characters, alphanumeric only)
+
+### Optional Fields:
+- **Performance**: Description of technical skills or projects you can contribute (max 500 characters)
 
 ## Deployment  
 
