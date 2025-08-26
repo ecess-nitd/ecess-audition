@@ -1,18 +1,20 @@
-# Exordium 2025  
-Exordium 2025 is an event registration platform built with Next.js and Supabase.  
+# ECESS Audition 2025  
+ECESS Audition 2025 is an audition registration platform for ECESS (Electronics and Communication Engineering Students Society) at NIT Durgapur, built with Next.js and Supabase.  
 
 ### Features  
 - Next.js 14 with the App Router  
 - Supabase as the backend database  
 - Tailwind CSS for styling  
 - Secure form submission with validation  
+- Rate limiting for form submissions  
+- Responsive design for all devices  
 
 ## Getting Started  
 
 ### 1. Clone the Repository  
 ```bash
-git clone https://github.com/yourusername/exordium.git
-cd exordium
+git clone https://github.com/yourusername/ecess-audition.git
+cd ecess-audition
 ```
 
 ### 2. Install Dependencies  
@@ -52,7 +54,7 @@ CREATE TABLE submissions (
 );
 ```
 
-This table will store user submissions.
+This table will store audition registrations.
 
 ## Configuring the Environment Variables  
 
@@ -68,6 +70,16 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY` should be the Supabase anonymous API key.  
 - Do not expose your **Supabase service role key** in the frontend.  
 
+## Form Fields
+
+The audition registration form includes the following fields:
+- **Name**: Full name of the participant
+- **Email**: Contact email address
+- **Phone**: 10-digit phone number
+- **Section**: Academic section (single character)
+- **Roll Number**: Student roll number (max 8 characters)
+- **Hall Number**: Hostel hall number (1-14)
+- **Performance**: Description of performance willing to stage (optional, max 500 characters)
 
 ## Deployment  
 
@@ -81,4 +93,4 @@ To deploy the application on Vercel:
 This project is licensed under the **MIT License**.
 
 ## Contributing  
-Contributions are welcome. To contribute, fork the repository, create a new branch, and submit a pull request.  
+Contributions are welcome. To contribute, fork the repository, create a new branch, and submit a pull request.

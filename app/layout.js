@@ -20,20 +20,20 @@ const orbitron = Orbitron({
 });
 
 export const metadata = {
-  title: "EXORDIUM - Kickstart Your ECE Journey | NIT Durgapur",
-  description: "EXORDIUM is an exclusive event for first-year students at NIT Durgapur, unlocking the future of Electronics and Communication Engineering (ECE) with AI, IoT, and robotics.",
-  keywords: "EXORDIUM, NIT Durgapur, ECE, Electronics and Communication Engineering, AI, IoT, Robotics, Digital Systems, Telecommunications, Tech Event, Future Innovations",
+  title: "ECESS Audition 2025 - Register for ECESS Auditions | NIT Durgapur",
+  description: "ECESS Audition 2025 is an exclusive audition registration platform for first-year students at NIT Durgapur, organized by the Electronics and Communication Engineering Students Society.",
+  keywords: "ECESS Audition 2025, NIT Durgapur, ECE, Electronics and Communication Engineering, ECESS, Audition Registration, Student Society, Performance, Creative Arts, Technical Skills",
   openGraph: {
-    title: "EXORDIUM - Kickstart Your ECE Journey",
-    description: "Step into the world of Electronics and Communication Engineering with EXORDIUM at NIT Durgapur. Explore AI, IoT, robotics, and more.",
-    url: "https://exordium-ruby.vercel.app",
+    title: "ECESS Audition 2025 - Register for ECESS Auditions",
+    description: "Join ECESS Audition 2025 at NIT Durgapur. Showcase your talents and skills in this exclusive audition organized by the Electronics and Communication Engineering Students Society.",
+    url: "https://ecess-audition.vercel.app",
     siteName: "ECESS NIT Durgapur",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "EXORDIUM - Kickstart Your ECE Journey",
-    description: "Discover the limitless possibilities in Electronics and Communication Engineering at EXORDIUM, NIT Durgapur.",
+    title: "ECESS Audition 2025 - Register for ECESS Auditions",
+    description: "Join ECESS Audition 2025 at NIT Durgapur. Showcase your talents and skills in this exclusive audition organized by the Electronics and Communication Engineering Students Society.",
   },
 };
 

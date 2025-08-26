@@ -60,10 +60,10 @@ export default function Home() {
     <WavyBackground waveWidth={35} blur={15} waveOpacity={0.1} speed="fast">
       <div className="flex justify-center items-center font-[family-name:var(--font-geist-sans)] my-4 mt-10">
         <div className="text-white p-3">
-          <p className="text-3xl font-bold font-[family-name:var(--font-orbitron)] tracking-wider">Exordium 2025</p>
-          {/* <p className="text-lg text-slate-300">
-          These audition questions are designed to evaluate your skills, creativity, and problem-solving abilities.
-        </p> */}
+          <p className="text-3xl font-bold font-[family-name:var(--font-orbitron)] tracking-wider">ECESS Audition 2025</p>
+          <p className="text-lg text-slate-300">
+            These audition questions are designed to evaluate your skills, creativity, and problem-solving abilities.
+          </p>
           <form className="my-3" onSubmit={handleSubmit}>
             <Label htmlFor="name">Name</Label>
             <Input name="name" value={formData.name} onChange={handleChange} required placeholder="Enter your full name" type="text" maxLength="100" />
