@@ -79,7 +79,7 @@ The audition registration form includes the following fields:
 - **Section**: Academic section (single character)
 - **Roll Number**: Student roll number (max 8 characters)
 - **Hall Number**: Hostel hall number (1-14)
-- **Performance**: Description of performance willing to stage (optional, max 500 characters)
+- **Performance**: Description of technical skills or projects you can contribute (optional, max 500 characters)
 
 ## Deployment  
 

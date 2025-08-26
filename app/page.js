@@ -58,52 +58,57 @@ export default function Home() {
 
   return (
     <WavyBackground waveWidth={35} blur={15} waveOpacity={0.1} speed="fast">
-      <div className="flex justify-center items-center font-[family-name:var(--font-geist-sans)] my-4 mt-10">
-        <div className="text-white p-3">
-          <p className="text-3xl font-bold font-[family-name:var(--font-orbitron)] tracking-wider">ECESS Audition 2025</p>
-          <p className="text-lg text-slate-300">
-            These audition questions are designed to evaluate your skills, creativity, and problem-solving abilities.
-          </p>
-          <form className="my-3" onSubmit={handleSubmit}>
-            <Label htmlFor="name">Name</Label>
-            <Input name="name" value={formData.name} onChange={handleChange} required placeholder="Enter your full name" type="text" maxLength="100" />
+      <main className="min-h-screen">
+        <section className="flex justify-center items-center font-[family-name:var(--font-geist-sans)] my-4 mt-10">
+          <div className="text-white p-3 max-w-2xl mx-auto">
+            <header className="text-center mb-8">
+              <h1 className="text-3xl font-bold font-[family-name:var(--font-orbitron)] tracking-wider mb-4">ECESS Audition 2025</h1>
+            </header>
+            
+            <section className="audition-form">
+              <h2 className="sr-only">Audition Registration Form</h2>
+              <form className="my-3" onSubmit={handleSubmit}>
+                <Label htmlFor="name">Name</Label>
+                <Input name="name" value={formData.name} onChange={handleChange} required placeholder="Enter your full name" type="text" maxLength="100" />
 
-            <div className="flex flex-col md:flex-row md:space-x-3">
-              <div className="flex-1">
-                <Label htmlFor="email">Email</Label>
-                <Input name="email" value={formData.email} onChange={handleChange} required placeholder="Enter your email" type="email" />
-              </div>
-              <div className="flex-1">
-                <Label htmlFor="phone">Phone</Label>
-                <Input name="phone" value={formData.phone} onChange={handleChange} required placeholder="Enter your phone number" type="tel" minLength="10" maxLength="10" />
-              </div>
-            </div>
+                <div className="flex flex-col md:flex-row md:space-x-3">
+                  <div className="flex-1">
+                    <Label htmlFor="email">Email</Label>
+                    <Input name="email" value={formData.email} onChange={handleChange} required placeholder="Enter your email" type="email" />
+                  </div>
+                  <div className="flex-1">
+                    <Label htmlFor="phone">Phone</Label>
+                    <Input name="phone" value={formData.phone} onChange={handleChange} required placeholder="Enter your phone number" type="tel" minLength="10" maxLength="10" />
+                  </div>
+                </div>
 
-            <div className="flex flex-col md:flex-row md:space-x-3">
-              <div className="flex-1">
-                <Label htmlFor="section">Section</Label>
-                <Input name="section" value={formData.section} onChange={handleChange} required placeholder="Enter your section" type="text" maxLength="1" />
-              </div>
-              <div className="flex-1">
-                <Label htmlFor="roll_number">Roll number</Label>
-                <Input name="roll_number" value={formData.roll_number} onChange={handleChange} required placeholder="Enter your roll number" type="text" maxLength="8" />
-              </div>
-            </div>
+                <div className="flex flex-col md:flex-row md:space-x-3">
+                  <div className="flex-1">
+                    <Label htmlFor="section">Section</Label>
+                    <Input name="section" value={formData.section} onChange={handleChange} required placeholder="Enter your section" type="text" maxLength="1" />
+                  </div>
+                  <div className="flex-1">
+                    <Label htmlFor="roll_number">Roll number</Label>
+                    <Input name="roll_number" value={formData.roll_number} onChange={handleChange} required placeholder="Enter your roll number" type="text" maxLength="8" />
+                  </div>
+                </div>
 
-            <Label htmlFor="hall_number">Hall Number</Label>
-            <Input name="hall_number" value={formData.hall_number} onChange={handleChange} required placeholder="Enter your hall number" type="number" min="1" max="14" />
+                <Label htmlFor="hall_number">Hall Number</Label>
+                <Input name="hall_number" value={formData.hall_number} onChange={handleChange} required placeholder="Enter your hall number" type="number" min="1" max="14" />
 
-            <div className="my-3">
-              <Label htmlFor="performance">Willing to stage any performance, if yes, then what?</Label>
-              <Textarea name="performance" value={formData.performance} onChange={handleChange} placeholder="Enter your answer" maxLength="500" />
-            </div>
+                                 <div className="my-3">
+                   <Label htmlFor="performance">What technical skills or projects can you contribute to ECESS?</Label>
+                   <Textarea name="performance" value={formData.performance} onChange={handleChange} placeholder="Describe your technical skills, projects, or areas of expertise" maxLength="500" />
+                 </div>
 
-            <Button className="my-3 text-md w-full shadow-lg hover:shadow-blue-500/50 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-4 rounded-lg flex items-center gap-2 hover:scale-105 transition-transform duration-300" type="submit" disabled={isSubmitting}>
-              {isSubmitting ? <Loader className="animate-spin" /> : (<> Submit <ArrowUpRight /> </>)}
-            </Button>
-          </form>
-        </div>
-      </div>
+                <Button className="my-3 text-md w-full shadow-lg hover:shadow-blue-500/50 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-4 rounded-lg flex items-center gap-2 hover:scale-105 transition-transform duration-300" type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? <Loader className="animate-spin" /> : (<> Submit <ArrowUpRight /> </>)}
+                </Button>
+              </form>
+            </section>
+          </div>
+        </section>
+      </main>
     </WavyBackground>
   );
 }
