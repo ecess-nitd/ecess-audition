@@ -47,9 +47,10 @@ CREATE TABLE submissions (
   name TEXT NOT NULL,
   email TEXT NOT NULL,
   phone TEXT NOT NULL,
-  section TEXT NOT NULL,
+  domain TEXT[] NOT NULL,
+  gender TEXT NOT NULL,
+  cgpa NUMERIC(3,2) NOT NULL,
   roll_number TEXT NOT NULL,
-  hall_number TEXT NOT NULL,
   performance TEXT
 );
 ```
@@ -76,9 +77,10 @@ The audition registration form includes the following fields:
 - **Name**: Full name of the participant
 - **Email**: Contact email address
 - **Phone**: 10-digit phone number
-- **Section**: Academic section (single character)
+- **Domain**: Technical domains of expertise - multiple selection allowed (Web Development, Embedded Systems, Event Management, Video Editing, Graphic Designing)
+- **Gender**: Gender selection (Male, Female, Others)
+- **CGPA**: Current CGPA (5.00-10.00)
 - **Roll Number**: Student roll number (max 8 characters)
-- **Hall Number**: Hostel hall number (1-14)
 - **Performance**: Description of technical skills or projects you can contribute (optional, max 500 characters)
 
 ## Deployment  

@@ -5,9 +5,10 @@ const formSchema = z.object({
   name: z.string().min(1, "Name is required").max(100),
   email: z.string().email("Invalid email format"),
   phone: z.string().length(10, "Phone number must be 10 digits").regex(/^\d+$/, "Phone must contain only numbers"),
-  section: z.string().max(1, "Section should be a single character"),
+  domain: z.array(z.enum(["Web Development", "Embedded Systems", "Event Management", "Video Editing", "Graphic Designing"])).min(1, "At least one domain must be selected").max(2, "Maximum 2 domains allowed"),
+  gender: z.enum(["Male", "Female", "Others"]),
+  cgpa: z.coerce.number().min(5.00, "CGPA must be at least 5.00").max(10.00, "CGPA must be at most 10.00"),
   roll_number: z.string().max(8, "Roll number must be at most 8 characters"),
-  hall_number: z.coerce.number().min(1).max(14, "Hall number must be between 1 and 14"),
   performance: z.string().max(500, "Performance description is too long").optional(),
 });
 
